@@ -43,7 +43,7 @@ app.post("/", function(req, res){
     })
 })
 // To make a POST request use POSTMAN
-// {"isHealthy: true"}  -> type under body section of POSTMAN
+// {"isHealthy": true}  -> type under body section of POSTMAN
 
 // Now after making 4-5 POST request the noOfKidneys get increases (check in localhost)
 
