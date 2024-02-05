@@ -1,4 +1,8 @@
-// Using middleware to check if the user is logged in or not
+// Middleware is a function that runs between the request and the response. 
+// It can be used to check if the user is logged in or not, if the user has the right permissions to access the data, etc. 
+// It is a very powerful tool to use in your application. 
+
+// Using middleware to check if the user is logged in or not.
 
 const express = require('express');
 const app = express();

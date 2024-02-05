@@ -1,3 +1,5 @@
+// Global catch - To  handle all the errors and helps you give the user a better error message.
+
 const express = require('express');
 const app = express();
 
