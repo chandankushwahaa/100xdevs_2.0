@@ -1,5 +1,14 @@
 
-#  100Xdevs Cohort 2.0 - [Syllabus]()
+#  100Xdevs Cohort 2.0 - Syllabus [0-1]() and  [1-100]()
+### 100xdevs cohort 2.0 by @hkirat
+- MERN
+- DEVOPS BASIC  
+- OPEN-SOURCE (GSOC)
+- PORTFOLIO PROJECTS
+- SYSTEM DESIGN
+- ADVANCED BACKEND
+- ADVANCED DEVOPS
+- OPEN-SOURCE (REAL COMPANIES)
 
 ##  Week - 0
 
