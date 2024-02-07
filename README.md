@@ -1,5 +1,5 @@
 
-#  100Xdevs Cohort 2.0 - Syllabus [0-1]() and  [1-100]()
+#  100Xdevs Cohort 2.0 - Syllabus [0-1](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1) and  [1-100](https://github.com/chandanck22/100xdevs_2.0/tree/main/1-100)
 ### 100xdevs cohort 2.0 by @hkirat
 - MERN
 - DEVOPS BASIC  
