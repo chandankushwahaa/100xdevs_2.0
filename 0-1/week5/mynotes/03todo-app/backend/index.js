@@ -5,9 +5,10 @@ const { createTodo, updateTodo } = require('./types');
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 app.use(express.json());
-
+app.use(cors());
 
 // body{
 //   title: "string",
@@ -62,11 +63,13 @@ app.put("/completed", async function(req, res){
     })
     return;
   }
+
   await todo.updateOne({
     _id: req.body.id
   }, {
     completed: true
   })
+  
   res.json({
     msg: "Todo Mark as Completed"
   })

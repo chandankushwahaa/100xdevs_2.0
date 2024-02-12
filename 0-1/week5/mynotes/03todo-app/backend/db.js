@@ -9,7 +9,7 @@
 const mongoose = require('mongoose');
 
 // put link in .env file 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.drcpyjj.mongodb.net/todos")
+mongoose.connect("PASTE_YOUR_LINK_HERE/DATABASE_NAME")
 
 const todoSchema = mongoose.Schema({
   title: String,
@@ -17,7 +17,7 @@ const todoSchema = mongoose.Schema({
   completed: Boolean
 })
 
-const todo = mongoose.model('todoapp-week52', todoSchema);
+const todo = mongoose.model('todoapp', todoSchema);
 
 module.exports = {
   todo: todo
