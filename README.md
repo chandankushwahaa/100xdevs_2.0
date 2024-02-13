@@ -61,11 +61,13 @@
 
 - Week 2.5 Express From Basics
 
-- Week 2.6 Map, Filter and Arrow Functions
+- Week 2.6 Map, Filter, and Arrow Functions
 
 - Week 2.7 Git and GitHub
 
-***[MYNOTES - Week 2](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week2/mynotes)***
+***[MYNOTES Code - Week 2](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week2/mynotes)***
+
+***[MYNOTES Theory - Week 2](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week2)***
 
 - Assignments
    - [Async](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week2/assignments/01-async-js)
@@ -116,7 +118,7 @@
 
 - Assignment
 
-   - [React Todo]()
+***[MYNOTES - Week 4](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week4/mynotes)***
 
 
 ##  Week - 5 React Foundations and Projects
@@ -125,8 +127,9 @@
 
 - Week 5.2 React Project (Todo App)
 
-- Assignment
-
+***[MYNOTES - Week 4](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week4/mynotes)***
+- ***[Counter App](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week5/mynotes/02counterapp)***
+- ***[Counter App](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week5/mynotes/03todo-app)***
 
 ## Week - 6 React useEffect, useCallback, useMemo
 
