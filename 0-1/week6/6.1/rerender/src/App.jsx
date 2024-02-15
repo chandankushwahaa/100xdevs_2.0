@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
 import './App.css';
+import _01Random from './_01Random';
+import _02UseEffect from './_02UseEffect';
+import _03UseEffect from './_03UseEffect';
+import _04UseEffect from './_04UseEffect';
+import _05useMemo from './_05useMemo';
+import _06useCallback from './_06useCallback';
 
 function App() {
-
-  const [title, setTitle] = useState("Chandan");
-
-  function updateTitle(){
-    setTitle("Hello "+ Math.random().toString(36).substring(7) + "!") 
-  }
-  
   return (
     <>
-      <h1>Click the button to add random value</h1>
-      <button onClick={updateTitle}>Click me</button>
-      <Header title={title}></Header>
+    < _01Random />
+    <br /><br />
+    < _02UseEffect />
+    <br />
+    < _03UseEffect />
+    <br />
+    < _04UseEffect />
+    <br />
+    < _05useMemo />
+    <br />
+    < _06useCallback />
+    
     </>
+    
   )
-
-  function Header({title}){
-    return <div>
-      {title}
-    </div>
-  }
 }
 
-export default App
+export default App;
