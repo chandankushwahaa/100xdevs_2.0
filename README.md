@@ -134,11 +134,34 @@
 ## Week - 6 React useEffect, useCallback, useMemo
 
 - Week 6.1 React Deeper Drive  
+   - [Silde]
 
 - Week 6.2 useEffect, useCallback, useMemo
+   - [Silde]
+   - [Notes]
 
 - Week 6.3 Recap React, reconcilliation, useRef
+   - [Silde]
 
 - Week 6.4 Assignment Solutions
+
+<hr></hr>
+
+## Week - 7 Routing, Context API
+
+- Week 7.1 Routes, Lazy Loading, Prop Drilling, Context API
+   - [Slide]()
+   - [Notes]()
+
+- Week 7.2 Context API, State Management and Recoil
+   - [Slide]()
+   - [Notes]()
+
+- Week 7.3 Recoil Deep Drive
+   - [Notes]()
+
+***[MYNOTES - Week 7]()***
+
+
 
 <hr></hr>
