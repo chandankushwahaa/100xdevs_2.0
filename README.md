@@ -153,7 +153,7 @@
    - [Slide]()
    - [Notes]()
 
-- Week 7.2 Context API, State Management and Recoil
+- Week 7.2 State Management and Recoil
    - [Slide]()
    - [Notes]()
 
