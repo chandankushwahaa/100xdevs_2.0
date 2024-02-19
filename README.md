@@ -10,6 +10,8 @@
 - ADVANCED DEVOPS
 - OPEN-SOURCE (REAL COMPANIES)
 
+## [**Notes**](https://daily-code-web.vercel.app/)
+
 ##  Week - 0
 
 - Basics of HTML and CSS
