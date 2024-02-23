@@ -131,19 +131,18 @@
 
 ***[MYNOTES - Week 4](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week4/mynotes)***
 - ***[Counter App](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week5/mynotes/02counterapp)***
-- ***[Counter App](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week5/mynotes/03todo-app)***
+- ***[Todo App](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week5/mynotes/03todo-app)***
 
 ## Week - 6 React useEffect, useCallback, useMemo
 
 - Week 6.1 React Deeper Drive  
-   - [Silde]
+   - [Silde](https://github.com/chandanck22/100xdevs_2.0/blob/main/0-1/week6/6.1%20React%20Deeper%20Drive.pdf)
 
 - Week 6.2 useEffect, useCallback, useMemo
-   - [Silde]
-   - [Notes]
+   - [Silde](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week6)
 
 - Week 6.3 Recap React, reconcilliation, useRef
-   - [Silde]
+   - [Silde](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week6)
 
 - Week 6.4 Assignment Solutions
 
@@ -152,18 +151,24 @@
 ## Week - 7 Routing, Context API
 
 - Week 7.1 Routes, Lazy Loading, Prop Drilling, Context API
-   - [Slide]()
-   - [Notes]()
+   - [Slide](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week7)
 
 - Week 7.2 State Management and Recoil
+   - [Slide](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week7)
+
+- Week 7.3 Recoil Deep Drive
+
+***[MYNOTES - Week 7](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week7/mynotes)***
+
+<hr></hr>
+
+## Week - 8 Tailwind, Paytm Clone
+
+- Week 7.1 Tailwind
    - [Slide]()
    - [Notes]()
 
-- Week 7.3 Recoil Deep Drive
-   - [Notes]()
-
-***[MYNOTES - Week 7]()***
-
-
+- Week 7.2 Paytm
+   - [Code]()
 
 <hr></hr>
