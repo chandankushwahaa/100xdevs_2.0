@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.drcpyjj.mongodb.net/users_week3', { useNewUrlParser: true, useUnifiedTopology: true }); // users_week3 is the name of the database
+mongoose.connect('DATABASE_URL/users_week3', { useNewUrlParser: true, useUnifiedTopology: true }); // users_week3 is the name of the database
 
 const User = mongoose.model('User', { name: String, email: String, password: String });
 

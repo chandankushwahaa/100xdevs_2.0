@@ -4,7 +4,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.drcpyjj.mongodb.net/test') // test is the name of the database
+mongoose.connect('DATABASE_URL/test') // test is the name of the database
 
 const User = mongoose.model('User', { name: String, email: String, password: String });
 
