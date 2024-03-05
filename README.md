@@ -93,9 +93,12 @@
 
 - Week 3.5 DOM Introduction
 
-***[MYNOTES - Week 3](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week3/mynotes)***
+***MYNOTES Theory - Week 3***
+   - [Middleware](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week3/mynotes/01)
+   - [Databases](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week3/mynotes/02databases)
+   - [DOM](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week3/mynotes/03DOM)
 
-- Assignments
+Assignments
    - [Middlewares](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week3/assignments/01-middlewares)
       - [Request Counter]()
       - [Rate Limitter]()
