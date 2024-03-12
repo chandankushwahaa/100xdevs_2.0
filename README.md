@@ -167,11 +167,44 @@ Assignments
 
 ## Week - 8 Tailwind, Paytm Clone
 
-- Week 7.1 Tailwind
-   - [Slide]()
-   - [Notes]()
+- Week 8.1 Tailwind
+   - [Slide](https://github.com/chandanck22/100xdevs_2.0/blob/main/0-1/week8/8%20Tailwind.pdf)
+   - [Notes](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week8/8-1-Tailwind)
 
-- Week 7.2 Paytm
+- Week 8.2 Paytm UNDER DEVELOPMENT
    - [Code]()
+   - [Notes](https://daily-code-web.vercel.app/tracks/oAjvkeRNZThPMxZf4aX5/JLaLbhDuYn3h5Cn7WJu1)
+
+<hr></hr>
+
+## Week - 9 Tailwind, Paytm Clone
+
+- Week 9.1 Custom Hooks
+   - [Code]()
+   - [Notes](https://daily-code-web.vercel.app/tracks/3Vhp7rCJUVjnvFuPxZSZ/hook-1)
+
+- Week 9.1 TypeScript
+   - [Code]()
+   - [Notes](https://daily-code-web.vercel.app/tracks/6SbPPXGkG8QKFOTW9BmL/ts-1)
+
+<hr></hr>
+
+## Week - 10 SQL Databases
+
+- Week 10.1 Postgres SQL
+   - [Code]()
+   - [Notes](https://daily-code-web.vercel.app/tracks/YOSAherHkqWXhOdlE4yE/sql-1)
+
+- Week 10.1 Prisma ORM
+   - [Code]()
+   - [Notes](https://daily-code-web.vercel.app/tracks/gZf9uBBNSbBR7UCqyyqT/prisma-1)
+
+## Week - 11 Deploy Applications
+
+- Week 11.1 Serverless FNS
+   - [Code]()
+   - [Notes](https://projects.100xdevs.com/tracks/eooSv7lnuwBO6wl9YA5w/serverless-1)
+
+- Week 11.1 AWS, Deploying in VPS
 
 <hr></hr>
