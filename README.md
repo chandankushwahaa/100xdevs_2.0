@@ -177,7 +177,7 @@ Assignments
 
 <hr></hr>
 
-## Week - 9 Tailwind, Paytm Clone
+## Week - 9 Custom Hooks, TypeScript
 
 - Week 9.1 Custom Hooks
    - [Code]()
@@ -186,6 +186,8 @@ Assignments
 - Week 9.1 TypeScript
    - [Code]()
    - [Notes](https://daily-code-web.vercel.app/tracks/6SbPPXGkG8QKFOTW9BmL/ts-1)
+
+   ***[MYNOTES - Week 9]()***
 
 <hr></hr>
 
