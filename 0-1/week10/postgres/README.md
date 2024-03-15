@@ -30,7 +30,7 @@ npm install @types/pg
 import { Client } from 'pg';
 
 const client = new Client({
-  connectionString: "postgresql://neondb_owner:LN3bZAmtdIq0@ep-square-leaf-a1xnvvpp.ap-southeast-1.aws.neon.tech/week10postgres?sslmode=require"
+  connectionString: "ADD_NEON_DB_URL"
 });
 
 
