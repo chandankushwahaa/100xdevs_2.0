@@ -1,36 +1,8 @@
 
-#  PRISMA - ORM
- 
- > ## Object Relational Mapping (ORM)
-ORM is a technique used in creating a "bridge" between object-oriented programs and, in most cases, relational databases.
-
-Imagine you have a big warehouse (database) with lots of boxes (tables) filled with stuff (data). Now, you also have a system for organizing things in your head (programming language) where things are grouped by category (objects).
-
-An ORM, or Object-Relational Mapper, acts like a translator between these two systems. It lets you work with the warehouse (database) using the way you organize things in your head (programming language).
-
-Here's how it works:
-
-- You tell the ORM about the categories (objects) in your system and what information they hold.
-- The ORM then figures out how this translates to the boxes and labels in the warehouse (tables and columns in the database).
-- When you want to add something new, the ORM takes your category (object) and puts it in the right box (table) in the warehouse (database).
-- Similarly, if you want to find something specific, the ORM translates your search in your category system (programming language) to finding the right box (table) and item (data) in the warehouse (database).
-
-## ORM Tools for Nodejs
-An ORM tool is software designed to help OOP developers interact with relational databases. So instead of creating your own ORM software from scratch, you can make use of these tools.
-- Prisma
-- Sequelize
-- TypeORM
-- Objection.js
-- Mikro-ORM
-
-> ## Prisma
-Prisma is a new kind of ORM tool that simplifies how you interact with databases in your code. It acts as a bridge between your programming language and the database, allowing you to write code that's easier to understand and maintain.
-
-Prisma can work with different types of databases, like PostgreSQL, MySQL, and MongoDB. So it's flexible and can adapt to your needs.
 
 > ##  Installation Prisma
 
-* You can use neon, aiven, subabase, elephantSQL or run it locally
+* You can use Online databases like neon, aiven, subabase, elephantSQL or run it locally
  
 ### 1. Using Neon database
 
