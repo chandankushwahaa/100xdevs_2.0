@@ -203,7 +203,7 @@ Assignments
 
 ## Week - 11 Deploy Applications
 
-- Week 11.1 Serverless FNS
+- Week 11.1 Serverless FNS, Deploying to Cloudflare
    - [Code]()
    - [Notes](https://projects.100xdevs.com/tracks/eooSv7lnuwBO6wl9YA5w/serverless-1)
 
