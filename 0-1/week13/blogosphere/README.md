@@ -51,6 +51,8 @@ npm install
 
     [vars]
     DATABASE_URL="PASTE the PRISMA URL"
+    
+    JWT_SECRET="mytoken"
     ```
 
 5. Start the `backend` server using Cloudflare Workers:
@@ -64,3 +66,6 @@ npm run start
 ```
 
 Access Blogosphere in your browser at http://localhost:3000.
+
+
+> cloudflare worker not take environment variable from `.env` file it takes from `wrangle.toml` file
