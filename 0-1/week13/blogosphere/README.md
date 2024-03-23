@@ -38,7 +38,20 @@ npm install
 cd ../backend
 npm install
 ```
-4. Set up your `PostgreSQL` database and configure the Prisma connection in backend/prisma/schema.prisma.
+4. Create a `.env` and `wrangler.toml` file inside backend.
+
+   - inside `.env` - Use [AIVEN](https://aiven.io/) postgres database
+    ```
+    DATABASE_URL="PASTE DATABASE URL"
+    ```
+    - inside `wrangler.toml` - Use [PRISMA](https://www.prisma.io/data-platform/accelerate)
+    ```
+    name = "backend"
+    compatibility_date = "2023-12-01"
+
+    [vars]
+    DATABASE_URL="PASTE the PRISMA URL"
+    ```
 
 5. Start the `backend` server using Cloudflare Workers:
 
