@@ -241,6 +241,9 @@ Assignments
 - Week 13.2 Backend
 - Week 13.3 Frontend
 
+- [Slide](https://projects.100xdevs.com/tracks/blog/blog-1)
+- Code
+
 <hr>
 
 ## Week 14 Next JS
