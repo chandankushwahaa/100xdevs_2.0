@@ -2,6 +2,8 @@ import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { Hono } from 'hono';
 import { sign } from 'hono/jwt';
+import { signUpInput, signInInput } from '@nullhackers/zod-npm-package-blogosphere';
+
 
 export const userRoutes = new Hono<{
   Bindings: {
@@ -12,6 +14,12 @@ export const userRoutes = new Hono<{
 
 // Sign up
 userRoutes.post('/signup', async (c) => {
+  const { success } = signUpInput.safeParse(c.req.json());
+  if (!success) {
+    c.status(411);
+    return c.json({ message: 'Invalid Input' });
+  }
+
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
@@ -40,6 +48,12 @@ userRoutes.post('/signup', async (c) => {
 
 // Sign in
 userRoutes.post('/signin', async (c) => {
+  const { success } = signInInput.safeParse(c.req.json());
+  if (!success) {
+    c.status(411);
+    return c.json({ message: 'Invalid Input' });
+  }
+
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());

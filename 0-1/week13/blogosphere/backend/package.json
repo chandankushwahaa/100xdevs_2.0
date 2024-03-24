@@ -4,6 +4,7 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@nullhackers/zod-npm-package-blogosphere": "^1.0.0",
     "@prisma/client": "^5.11.0",
     "@prisma/extension-accelerate": "^1.0.0",
     "hono": "^4.1.3",
