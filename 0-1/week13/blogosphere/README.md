@@ -65,7 +65,32 @@ npm run dev
 npm run start
 ```
 
+- **NOTE** If you make changes in the database i.e `schema.prisma` file you need to migrate using the follwing command to tell the database the the table you had added is been altered.
+```bash
+npx prisma migrate dev --name init_schema
+```
+- And then Generate the prisma client 
+```
+npx prisma generate --no-engine
+```
+
 Access Blogosphere in your browser at http://localhost:3000.
 
 
+### To Deploy
+
+```
+npx wrangler whoami
+```
+```
+npx wrangler login
+```
+```
+npm run deploy
+```
+
 > cloudflare worker not take environment variable from `.env` file it takes from `wrangle.toml` file
+
+> - This code snippet demonstrates the usage of Cloudflare Workers and the need for a connection pool when connecting to a database.
+> - Cloudflare Workers create multiple instances distributed throughout the world. When deploying the code, each instance connects to the database, which can be inefficient and potentially overload the database.
+> - To address this issue, it is recommended to use a connection pool. In this code, the `prisma` library is used for managing the connection pool and connecting to the database.
