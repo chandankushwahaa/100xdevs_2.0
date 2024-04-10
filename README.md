@@ -242,14 +242,16 @@ Assignments
 - Week 13.3 Frontend
 
 - [Slide](https://projects.100xdevs.com/tracks/blog/blog-1)
-- Code
+- [Code](https://github.com/chandanck22/vibranthive)
 
 <hr>
 
 ## Week 14 Next JS
 
 - Week 14.1 Intro to NextJS
+   - [Slide](https://projects.100xdevs.com/tracks/nextjs-1/next-1)
 - Week 14.2 Backend in NextJS
+   - [Slide](https://projects.100xdevs.com/tracks/nextjs-2/next-2-1)
 - Week 14.3 Next JS Part 2
 
 <hr>
@@ -261,6 +263,44 @@ Assignments
 - Week 15.3 Docker push, compose, execute
 - Week 15.4 Docker Bind, mounts
 
+- [Slide](https://projects.100xdevs.com/tracks/docker-2/docker-2-1)
+
 <hr>
 
-## Week 16 
+## Week 16 Turborepo Monorepos, Auth, Cookies, NextAuth
+
+- Week 16.1 Monorepos
+- Week 16.2 Monorepos Part 2
+   - [Slide](https://projects.100xdevs.com/tracks/monorepo/monorepo-1)
+- Week 16.3 Auth and Cookies
+   - [Slide](https://projects.100xdevs.com/tracks/Auth/auth-1)
+- Week 16.4 NextAuth
+   - [Slide](https://projects.100xdevs.com/tracks/Next-Auth/La3EksBcKVqExEMwNAxa)
+
+<hr>
+
+## Week 17 Paytm Project Advance
+
+- Week 17.1  Part-1 
+- Week 17.2  Part-2
+
+<hr>
+
+## Week 18 Paytm Continue, CI-CD
+
+- Week 18.1 Paytm Part-3
+- Week 18.2 Paytm Part-3 Countine
+- Week 18.3 CI-CD 
+   - [Slide](https://projects.100xdevs.com/tracks/CI-CD/cicd-1)
+
+<hr>
+
+## Week 19 Middlewares, CSR SSG, Websockets, Redis, Pub subs
+
+- Week 19.1 Middleware in Nextjs
+   - [Slide](https://projects.100xdevs.com/tracks/mw/md-1)
+- Week 19.2 CSR SSG SSR and Static site
+   - [Slide](https://projects.100xdevs.com/tracks/rendering/render-1)
+- Week 19.3 Advance Backend Websocket
+- Week 19.4 Pub subs, Redis and Queues
+   - [Slides](https://projects.100xdevs.com/tracks/Redis/Redis1)
