@@ -1,5 +1,0 @@
-node_modules
-.wrangler
-.env
-package-lock.json
-wrangler.toml
