@@ -51,6 +51,14 @@ There are many famous backend serverless providers -
 
 ## [How Cloudflare workers Works](https://developers.cloudflare.com/workers/reference/how-workers-works/#:~:text=Though%20Cloudflare%20Workers%20behave%20similarly,used%20by%20Chromium%20and%20Node)
 
+## CloudFlare Workers
+CloudFlare Workers allow us to create numerous serverless functions that can be utilized across the internet. However, connecting directly to a database through these functions can pose challenges, especially considering that databases often have limitations on the number of concurrent connections they can handle.
+
+In simpler terms, when we deploy our backend across multiple servers (mini machines), it's not advisable to establish direct connections to the database from each server. Granting direct access to the database from every server increases security risks and can overload the database with connection requests. To address this, we employ a strategy called a `Connection Pool`.
+
+With a `Connection Pool`, all servers connect to the pool instead of directly to the database. The Connection Pool then manages and optimizes the connections to the database, ensuring efficient use of resources and minimizing the risk of overload. This approach enhances security and scalability by centralizing access to the database while efficiently managing connection resources.
+
+We can get a Connection Pool from ORM like `Prisma`.
 
 ## Initalizing a Cloudflare Worker
 
