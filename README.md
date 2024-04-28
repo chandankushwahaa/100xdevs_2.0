@@ -10,6 +10,9 @@
 - ADVANCED BACKEND
 - ADVANCED DEVOPS
 - OPEN-SOURCE (REAL COMPANIES)
+<hr>
+
+># 0 - 1
 
 ## [**Notes**](https://daily-code-web.vercel.app/)
 
@@ -304,3 +307,13 @@ Assignments
 - Week 19.3 Advance Backend Websocket
 - Week 19.4 Pub subs, Redis and Queues
    - [Slides](https://projects.100xdevs.com/tracks/Redis/Redis1)
+
+<hr>
+
+># 1 - 100
+
+## Week 20 
+
+- Week 20.1 Orientation, (1-100) Setting -Up CMS daily
+- Week 20.2  OpenAPI Spec (Offline)
+- Week 20.3  OpenAPI Spec Class (Cohort 1)
