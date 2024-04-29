@@ -1,5 +1,5 @@
 # Medium Blog App
 
-### Project Under Development
+### Project
 [Here](https://github.com/chandanck22/vibranthive)
 
