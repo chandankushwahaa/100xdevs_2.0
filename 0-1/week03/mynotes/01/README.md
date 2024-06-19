@@ -1,8 +1,11 @@
 
 # Middlewares, Global Catches & Zod
-In this lecture, Harkirat dives deep into Middlewares:  behind-the-scenes helpers that tidy up things before your main code does its thing. Global catches: safety nets for your code, they catch unexpected issues before they cause chaos. And finally, Zod: a library that ensures efficient input validation on your behalf.
+
 
 ## Understanding Middlewares:
+Middleware are functions in Express.js that have access to the request object (req), the response object (res), and the next middleware function in the application's request-response cycle. Middleware functions can perform a variety of tasks, including modifying the request and response objects, ending the request-response cycle, and calling the next middleware function in the stack.
+
+
 
 **Imagine a Busy Hospital:**
 
@@ -19,6 +22,62 @@ Think of a hospital where there's a doctor, patients waiting in line, and a few 
 
 ![](./Untitled.png)
 
+
+**Types of Middleware:**
+- **Application-level middleware:** Bound to an instance of the express application.
+- **Router-level middleware:** Bound to an instance of express.Router().
+- **Error-handling middleware**: Takes four arguments (err, req, res, next).
+- **Built-in middleware:** Provided by Express, such as express.json() and express.static().
+- **Third-party middleware:** Created by the community, such as body-parser, morgan, etc.
+
+> Example:
+
+```js
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(3000)
+```
+>Example:
+```js
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+// Application-level middleware
+app.use((req, res, next) => {
+  console.log('Time:', Date.now());
+  next();
+});
+
+// Route-specific middleware
+const checkUser = (req, res, next) => {
+  if (req.query.user === 'admin') {
+    next();
+  } else {
+    res.status(403).send('Forbidden');
+  }
+};
+
+app.get('/admin', checkUser, (req, res) => {
+  res.send('Welcome Admin!');
+});
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
 
 ## Some Associated Concepts:
 
@@ -116,11 +175,13 @@ Middleware helps in processing the request at different stages and is essential 
 -   **Headers:** Extra details about the request, useful for special information.
 
 
+
 # Global Catches:
 
-It essentially help us the developers give a better error message to the user.
+Global error handling in Express.js is a way to manage errors that occur throughout your application in a centralized manner. This helps ensure consistent error responses and simplifies debugging and maintenance.
 
-> Global Catch or Error-Handling Middleware is a special type of middleware function in Express that has four arguments instead of three (`(err, req, res, next)`). Express recognizes it as an error-handling middleware because of these four arguments.
+
+Global Catch or Error-Handling Middleware is a special type of middleware function in Express that has four arguments instead of three (`(err, req, res, next)`). Express recognizes it as an error-handling middleware because of these four arguments.
 
 ```jsx
 // Error Handling Middleware
@@ -131,6 +192,68 @@ const errorHandler = (err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 };
 
+```
+> Basic Example
+```js
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+// Example route that triggers an error
+app.get('/', (req, res, next) => {
+  const err = new Error('Something went wrong!');
+  err.status = 500;
+  next(err);
+});
+
+// Global error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500);
+  res.json({
+    error: {
+      message: err.message,
+    },
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
+
+> Example with Asynchronous Code:
+```js
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+// Example route with asynchronous error
+app.get('/async', async (req, res, next) => {
+  try {
+    const data = await someAsyncFunction();
+    res.send(data);
+  } catch (err) {
+    next(err); // Pass the error to the global error handler
+  }
+});
+
+// Global error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500);
+  res.json({
+    error: {
+      message: err.message,
+    },
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
 ```
 
 ### Importance of **Global Error Handling:**
@@ -221,6 +344,12 @@ In this example, we define a `loginSchema` using `zod` that specifies the expect
 
 Zod is a TypeScript-first schema declaration and validation library. It provides a simple and expressive way to define the structure and constraints of your data, allowing you to easily validate and parse input against those specifications. Here's a brief explanation of Zod and its syntax:
 
+### Installation
+
+```bash
+npm install zod
+```
+
 ### Zod Syntax Overview:
 
 1.  **Basic Types:**
@@ -237,9 +366,11 @@ Zod is a TypeScript-first schema declaration and validation library. It provides
     -   You can define the structure of an object using the `object` method and specify the shape of its properties.
         
         ```jsx
+        import {z} from 'zod';
         const userSchema = z.object({
           username: z.string(),
           age: z.number(),
+          email: z.string.email(),
         });
         
         ```
@@ -252,12 +383,33 @@ Zod is a TypeScript-first schema declaration and validation library. It provides
         const addressSchema = z.object({
           street: z.string(),
           city: z.string(),
+          zipCode: z.string().length(5),
         });
-        
+
         const userSchema = z.object({
-          username: z.string(),
+          name: z.string(),
+          age: z.number().int().positive(),
+          email: z.string().email(),
           address: addressSchema,
         });
+
+        const userData = {
+          name: 'Chandan Kushwaha',
+          age: 23,
+          email: 'chandanck22@yahoo.com',
+          address: {
+            street: '123 Main Road',
+            city: 'New Delhi',
+            zipCode: '12345',
+          },
+        };
+
+        try {
+          const user = userSchema.parse(userData);
+          console.log('Valid user:', user);
+        } catch (e) {
+          console.error('Validation error:', e.errors);
+        }
         
         ```
         
@@ -311,11 +463,11 @@ Zod is a TypeScript-first schema declaration and validation library. It provides
         ```jsx
         try {
           const userData = userSchema.parse({
-            username: 'john_doe',
+            username: 'Chandan Kushwaha',
             age: 25,
             address: {
-              street: '123 Main St',
-              city: 'Exampleville',
+              street: '123 Main Road',
+              city: 'New Delhi',
             },
           });
           console.log('Parsed data:', userData);

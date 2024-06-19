@@ -1,272 +1,39 @@
-# Authentication & Databases
+# Content 
+- Authentication, Authorization
+- Hasing, Encryption
+- JWT, Local Storage
+- Cookies, Session
+- Database
 
-In this focused lecture, Harkirat covers crucial async concepts—**Fetch**, callbacks, **promises**, and **async/await**—as well as delves into **Authentication** strategies and Databases, specifically the ***MongoDB*** database.
+## 1. Authentication
 
-# fetch() Method
+In a programming context, authentication refers to the process of validating the identity of a user, system, or application attempting to access a computer system, network, or online service. The primary goal is to ensure that the entity requesting access is indeed who it claims to be. 
 
-The `fetch()` method in JavaScript is a modern API that allows you to make network requests, typically to retrieve data from a server. It is commonly used to interact with web APIs and fetch data asynchronously. Here's a breakdown of what the `fetch()` method is and why it's used:
+Authentication is a crucial aspect of software development, especially in scenarios where user access to sensitive data or functionalities needs to be controlled. Here's how authentication is typically implemented in programming:
 
-### What is the `fetch()` Method?
+- Browser make a request to the server, server checks if the user is valid or not, if valid then it sends the response back to the browser by sending a `token`(long string).
+- Token is store in the `local storage` of the browser.
+- After successful login, in every request, the token is sent to the server. The server does not check the username and password again, it only checks the token.
 
-The `fetch()` method is a built-in JavaScript function that simplifies making HTTP requests. It returns a Promise that resolves to the `Response` to that request, whether it is successful or not.
+> ### Authentication vs Authorization
+Authentication verifies a user's identity, while authorization determines what resources that user can access.
 
-### Why is it Used?
 
-1.  **Asynchronous Data Retrieval:**
-    -   The primary use of the `fetch()` method is to asynchronously retrieve data from a server. Asynchronous means that the code doesn't wait for the data to arrive before moving on. This is crucial for creating responsive and dynamic web applications.
-2.  **Web API Interaction:**
-    -   Many web applications interact with external services or APIs to fetch data. The `fetch()` method simplifies the process of making HTTP requests to these APIs.
-3.  **Promise-Based:**
-    -   The `fetch()` method returns a Promise, making it easy to work with asynchronous operations using the `.then()` and `.catch()` methods. This promotes cleaner and more readable code.
-4.  **Flexible and Powerful:**
-    -   `fetch()` is more flexible and powerful compared to older methods like `XMLHttpRequest`. It supports a wide range of options, including headers, request methods, and handling different types of responses (JSON, text, etc.).
+|**Authentication**| **Authorization** |
+|--|--|
+| Determines whether users are who they claim to be | Determines what users can and cannot access |
+|Challenges the user to validate credentials (for example, through passwords, answers to security questions, or facial recognition)| Verifies whether access is allowed through policies and rules|
+|Generally governed by the  OpenID Connect (OIDC) protocol| Generally governed by the OAuth 2.0 framework|
+|Example: Employees in a company are required to authenticate through the network before accessing their company email|Example: After an employee successfully authenticates, the system determines what information the employees are allowed to access |
 
-### Basic Example:
 
-Here's a basic example of using the `fetch()` method to retrieve data from a server:
 
-```jsx
-fetch('<https://api.example.com/data>')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Data from server:', data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
-
-```
-
-In this example, we use `fetch()` to make a GET request to '[https://api.example.com/data](https://api.example.com/data)', handle the response, and then parse the JSON data. The `.then()` and `.catch()` methods allow us to handle the asynchronous flow and potential errors.
-
-# Some Asynchronous Concepts
-
-## 1. **Callback Functions:**
-
-**Definition:** A callback function is a function that is passed as an argument to another function and is executed after the completion of that function.
-
-**Example:**
-
-```jsx
-function fetchData(callback) {
-  // Simulating an asynchronous operation
-  setTimeout(() => {
-    const data = 'Hello, callback!';
-    callback(data);
-  }, 1000);
-}
-
-// Using the callback function
-fetchData(result => {
-  console.log(result);
-});
-
-```
-
-**Relation to `fetch()`:** In older JavaScript code or libraries, callbacks were extensively used for handling asynchronous operations, such as handling the response in the `.then()` block of `fetch()`.
-
-## 2. **Promises:**
-
-**Definition:** A Promise is an object representing the eventual completion or failure of an asynchronous operation. It is a more structured and readable way to handle asynchronous code compared to callbacks.
-
-**Example:**
-
-```jsx
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    // Simulating an asynchronous operation
-    setTimeout(() => {
-      const success = true;
-      if (success) {
-        const data = 'Hello, Promise!';
-        resolve(data);
-      } else {
-        reject('Oops! Something went wrong.');
-      }
-    }, 1000);
-  });
-}
-
-// Using the Promise
-fetchData()
-  .then(result => {
-    console.log(result);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-
-
-```
-
-**Relation to `fetch()`:** The `fetch()` method returns a Promise. We use `.then()` to handle the resolved value (successful response) and `.catch()` for handling errors.
-
-## 3. **Async/Await:**
-
-**Definition:**`async/await` is a syntactic sugar built on top of Promises, making asynchronous code more readable and easier to write.
-
-**Example:**
-
-```jsx
-async function fetchData() {
-  return new Promise(resolve => {
-    // Simulating an asynchronous operation
-    setTimeout(() => {
-      const data = 'Hello, Async/Await!';
-      resolve(data);
-    }, 1000);
-  });
-}
-
-// Using async/await
-async function fetchDataAndPrint() {
-  try {
-    const result = await fetchData();
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Invoking the async function
-fetchDataAndPrint();
-
-```
-
-**Relation to `fetch()`:** In the context of `fetch()`, `async/await` provides a more synchronous-looking code structure when dealing with asynchronous operations, especially when handling responses.
-
-## **Overall Relationship:**
-
--   Callbacks were the traditional way of handling asynchronous code.
--   Promises introduced a more structured and readable way to handle async operations.
--   `async/await` builds on top of Promises, offering a more synchronous coding style, making asynchronous code look similar to synchronous code.
-
-**Example Combining All:**
-
-```jsx
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = 'Hello, Callback!';
-    callback(data);
-  }, 1000);
-}
-
-function fetchDataPromise() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      const data = 'Hello, Promise!';
-      resolve(data);
-    }, 1000);
-  });
-}
-
-async function fetchDataAsyncAwait() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      const data = 'Hello, Async/Await!';
-      resolve(data);
-    }, 1000);
-  });
-}
-
-// Using callback
-fetchData(result => {
-  console.log(result);
-
-  // Using Promise
-  fetchDataPromise()
-    .then(result => {
-      console.log(result);
-
-      // Using Async/Await
-      fetchDataAsyncAwait()
-        .then(result => {
-          console.log(result);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    })
-    .catch(error => {
-      console.error(error);
-    });
-});
-
-```
-
-In this example, we've shown the use of callback, Promise, and Async/Await together. Async/Await provides a cleaner and more readable way to structure asynchronous code, especially when dealing with multiple async operations.
-## 4. Try Catch Blocks
-
-In JavaScript and many other programming languages, a `try-catch` block is a mechanism for handling exceptions or errors in a structured way. This construct is crucial for writing robust and fault-tolerant code.
-
-### Purpose:
-
-The primary purpose of a `try-catch` block is to gracefully handle runtime errors or exceptions that may occur during the execution of a program. It allows developers to anticipate potential issues and implement a fallback strategy, preventing abrupt program termination.
-
-### Syntax:
-
-The basic syntax of a `try-catch` block is as follows:
-
-```jsx
-try {
-  // Code that may throw an exception
-} catch (error) {
-  // Code to handle the exception
-}
-
-```
-
--   The `try` block encloses the code that might generate an exception.
--   If an exception occurs, the control is transferred to the `catch` block, where the `error` parameter holds information about the exception.
-
-### How It Works:
-
-1.  **Execution in the Try Block:**
-    -   Code inside the `try` block is executed sequentially.
-    -   If an exception occurs at any point, the normal flow of execution is interrupted.
-2.  **Control Transfer to Catch Block:**
-    -   When an exception is thrown, control is transferred to the corresponding `catch` block.
-    -   The `catch` block is responsible for handling the exception.
-3.  **Exception Handling:**
-    -   Inside the `catch` block, developers can implement error-handling logic.
-    -   They can log the error, display a user-friendly message, or take alternative actions to recover from the error.
-
-### Example:
-
-```jsx
-try {
-  // Code that may throw an exception
-  const result = 10 / 0; // Division by zero, will throw an exception
-  console.log(result); // This line won't be executed
-} catch (error) {
-  // Code to handle the exception
-  console.error('An error occurred:', error.message); // Output: An error occurred: Cannot divide by zero
-} finally {
-  // Code inside the finally block will execute regardless of whether an exception occurred or not
-  console.log('Finally block executed');
-}
-
-```
-
--   In this example, a division by zero operation inside the `try` block will throw an exception.
--   The control is then transferred to the `catch` block, where an error message is logged.
--   The `finally` block, if present, will always execute, providing an opportunity for cleanup or finalization tasks.
-
-
-# Authentication
-
-In a programming context, authentication refers to the process of validating the identity of a user, system, or application attempting to access a computer system, network, or online service. The primary goal is to ensure that the entity requesting access is indeed who it claims to be. Authentication is a crucial aspect of software development, especially in scenarios where user access to sensitive data or functionalities needs to be controlled. Here's how authentication is typically implemented in programming:
-
-## 1. **Hashing:**
+## 2. **Hashing:**
 
 **Purpose:**
 
 -   Hashing is a one-way process that converts a password or any data into a fixed-size string of characters, which is typically a hash value. The primary purpose of hashing passwords before storing them in a database is to enhance security.
+-  It is the process of converting a given key into another value. It is a one-way function, means once the key is hashed, it cannot be converted back to the original key.
 
 **How it Works:**
 
@@ -277,30 +44,40 @@ In a programming context, authentication refers to the process of validating the
 
 -   **Security:** Hashing prevents storing plaintext passwords in the database, reducing the risk of data breaches. Even if the database is compromised, attackers only obtain hashed values, which are challenging to convert back to the original passwords.
 
+**Installation**
+```
+npm install bcrypt
+```
+
 **Example in Node.js using bcrypt:**
 
 ```jsx
 const bcrypt = require('bcrypt');
 
+const saltRounds = 10; // Cost factor for hashing
+
 // Hashing a password
-const plainPassword = 'user123';
-bcrypt.hash(plainPassword, 10, (err, hash) => {
+const password = 'mySecretPassword';
+bcrypt.hash(password, saltRounds, (err, hash) => {
   if (err) throw err;
   console.log('Hashed Password:', hash);
 
-  // Verify a password
-  bcrypt.compare('user123', hash, (err, result) => {
+  // Verifying the password
+  bcrypt.compare(password, hash, (err, result) => {
     if (err) throw err;
-    console.log('Password Match:', result);
+    console.log('Password match:', result); // true if match, false otherwise
   });
-});
-
 ```
+**Explanation:**
 
-## 2. **Encryption:**
+- **bcrypt.hash():** Hashes the password with a salt.
+- **bcrypt.compare():** Verifies the password against the stored hash.
+
+## 3. **Encryption:**
 
 **Purpose:**
 
+- It is the process of converting a given key into another value. It is a two-way function, means once the key is encrypted, it can be converted back to the original key.
 -   Unlike hashing, encryption is a two-way process that involves converting data into a format that can be easily reversed using a decryption key. Encryption is used to protect the confidentiality of data.
 
 **How it Works:**
@@ -317,33 +94,83 @@ bcrypt.hash(plainPassword, 10, (err, hash) => {
 ```jsx
 const crypto = require('crypto');
 
+const algorithm = 'aes-256-cbc'; // AES encryption algorithm
+const key = crypto.randomBytes(32); // 256-bit key
+const iv = crypto.randomBytes(16); // Initialization vector
+
 // Encryption
-const dataToEncrypt = 'Sensitive information';
-const encryptionKey = 'secretKey';
-const cipher = crypto.createCipher('aes-256-cbc', encryptionKey);
-let encryptedData = cipher.update(dataToEncrypt, 'utf-8', 'hex');
-encryptedData += cipher.final('hex');
-console.log('Encrypted Data:', encryptedData);
+const encrypt = (text) => {
+  const cipher = crypto.createCipheriv(algorithm, key, iv);
+  let encrypted = cipher.update(text, 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+  return encrypted;
+};
 
 // Decryption
-const decipher = crypto.createDecipher('aes-256-cbc', encryptionKey);
-let decryptedData = decipher.update(encryptedData, 'hex', 'utf-8');
-decryptedData += decipher.final('utf-8');
+const decrypt = (encryptedText) => {
+  const decipher = crypto.createDecipheriv(algorithm, key, iv);
+  let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
+  decrypted += decipher.final('utf8');
+  return decrypted;
+};
+
+const data = 'mySecretData';
+const encryptedData = encrypt(data);
+console.log('Encrypted Data:', encryptedData);
+
+const decryptedData = decrypt(encryptedData);
 console.log('Decrypted Data:', decryptedData);
 
 ```
+**Explanation:**
+- **crypto.createCipheriv():** Creates a Cipher object using the AES algorithm, a key, and an initialization vector (IV).
+- **cipher.update() and cipher.final():** Encrypts the data.
+- **crypto.createDecipheriv():** Creates a Decipher object to decrypt the data.
+- **decipher.update() and decipher.final():** Decrypts the data.
 
-## 3. JSON Web Tokens (JWT)
 
-A JSON Web Token, or JWT, is like a digital passport for information. It's a special kind of code that carries details about a user or some data. Imagine you have a passport when you travel to different countries – the passport holds your information and proves who you are. Similarly, a JWT carries information and proves certain things about you or the data it holds.
+> ### Hashing vs Encryption
+
+
+| Hashing |Encryption  |
+|--|--|
+| Hashing is used to verify the integrity of data. | Encryption is used to protect the confidentiality of data |
+| The original data cannot be retrieved from the hash | Encrypted data can be decrypted back to its original form using a key. |
+| Password storage, data integrity checks. | Secure communication, data storage. |
+| Use hashing (e.g., `bcrypt`) to store passwords securely. | Use encryption (e.g., `crypto` module) to protect sensitive data. |
+| Blowfish, RSA, Asymmetric, Symmetric, etc. | MD5, SHA-1, SHA-2, SHA256, etc. |
+
+
+## 4. JSON Web Tokens (JWT)
+
+- JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity-protected with a Message Authentication Code (MAC) and/or encrypted. (Application -> Local Storage).
+
+For example, a server could generate a token that has the claim "logged in as admin" and provide that to a client.
+The client could then use that token to prove that it is logged in as admin. The tokens are signed by the server's key, so the server is able to verify that the token is legitimate. The tokens are designed to be compact, URL-safe,
+and usable especially in a web-browser single sign-on (SSO) context. JWT claims can be typically used to pass identity of authenticated users between an identity provider and a service provider, or any other type of claims as required by business processes.
+- A JSON Web Token, or JWT, is like a digital passport for information. It's a special kind of code that carries details about a user or some data. Imagine you have a passport when you travel to different countries – the passport holds your information and proves who you are. Similarly, a JWT carries information and proves certain things about you or the data it holds.
 
 ### How Does JWT Look?
 
 A JWT is made up of three parts, and they are separated by dots:
 
-1.  **Header:** This part says how the JWT is encoded (like secret coding instructions).
-2.  **Payload:** This part holds the actual information or claims. For example, it might say who you are and when the JWT was created.
-3.  **Signature:** This part ensures that the JWT hasn't been tampered with. It's like a seal that shows the information is genuine.
+1.  **Header:** Typically consists of two parts: the type of the token (i.e., JWT) and the signing algorithm (e.g., HMAC SHA256 or RSA).
+
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+2.  **Payload:** Contains the claims. Claims are statements about an entity (typically, the user) and additional data.
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}
+```
+3.  **Signature:** To create the signature part, you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
 
 When you put these parts together, you get a long string that looks like a secret code.
 
@@ -356,9 +183,98 @@ When you put these parts together, you get a long string that looks like a secre
 3.  **Checking the JWT:**
     -   The website has a special key to check if the JWT is real. If everything is okay, the website knows the information in the JWT is trustworthy.
 
-## 4. Local Storage
+**Installation**
+```
+npm install jsonwebtoken
+```
 
-Local Storage is a client-side web storage mechanism that allows websites to store key-value pairs persistently on a user's device. In the realm of authentication, Local Storage often plays a crucial role in maintaining user sessions and preserving authentication tokens.
+**Creating JWT** 
+```js
+const jwt = require('jsonwebtoken');
+
+const payload = {
+  sub: "1234567890",
+  name: "John Doe",
+  iat: Math.floor(Date.now() / 1000) // Issued at time
+};
+
+const secret = 'your-256-bit-secret';
+
+const token = jwt.sign(payload, secret, { algorithm: 'HS256' });
+
+console.log("Generated JWT:", token);
+```
+
+**Verifying JWT**
+```js
+const jwt = require('jsonwebtoken');
+
+const token = 'your.jwt.token';
+
+// Verifies the JWT and decodes the payload if valid.
+jwt.verify(token, secret, (err, decoded) => {
+  if (err) {
+    console.error("Token verification failed:", err);
+  } else {
+    console.log("Decoded payload:", decoded);
+  }
+});
+```
+**Example of JWT in an Express.js Application:**
+```js
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+
+const app = express();
+const secret = 'your-256-bit-secret';
+
+app.use(bodyParser.json());
+
+// Login endpoint
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  // In a real application, you should verify username and password from a database
+  if (username === 'user' && password === 'password') {
+    const payload = { username };
+    const token = jwt.sign(payload, secret, { algorithm: 'HS256', expiresIn: '1h' });
+    res.json({ token });
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+// Middleware to verify JWT
+const authenticateJWT = (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (token) {
+    jwt.verify(token, secret, (err, user) => {
+      if (err) {
+        return res.sendStatus(403);
+      }
+      req.user = user;
+      next();
+    });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+// Protected route
+app.get('/protected', authenticateJWT, (req, res) => {
+  res.json({ message: 'This is a protected route.', user: req.user });
+});
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+```
+
+## 5. Local Storage
+
+- It is a web storage object that allows data to be stored in the browser with no expiration date. The data will not be deleted when the browser is closed, and will be available the next day, week, or year.
+- Local Storage is a client-side web storage mechanism that allows websites to store key-value pairs persistently on a user's device. In the realm of authentication, Local Storage often plays a crucial role in maintaining user sessions and preserving authentication tokens.
 
 ### Technical Implementation:
 
@@ -380,6 +296,101 @@ Local Storage is a client-side web storage mechanism that allows websites to sto
     -   Users experience the convenience of being automatically recognized and authenticated without the hassle of repeated logins, contributing to a seamless and user-friendly interface.
 
 > Local Storage serves as a valuable tool in the authentication landscape, contributing to efficient session management and enhanced user experiences. However, its use should be tempered with a keen awareness of security considerations, adherence to best practices, and a strategic approach to token management.
+
+## 6. Session
+A session is a way to store data on the server side to keep track of user interactions over multiple HTTP requests. Sessions are often used to maintain state and store information like user authentication status, user preferences, and other relevant data across different web pages.
+
+### How Sessions Work
+1. **Client Request:** When a user first accesses a website, the server creates a session and assigns a unique session ID.
+2. **Session Storage:** The session ID is stored on the server, along with any data associated with the session.
+3. **Session ID Transmission:** The session ID is sent to the client's browser, typically in a cookie.
+4. **Subsequent Requests:** For each subsequent request, the client's browser sends the session ID back to the server, allowing the server to retrieve the stored session data.
+
+**Installation**
+```
+npm install express express-session
+```
+**Example**
+```js
+const express = require('express');
+// Middleware for managing sessions in Express.
+const session = require('express-session');
+
+const app = express();
+
+app.use(session({
+  secret: 'your-secret-key', // Secret key for signing the session ID cookie
+  resave: false, // Forces the session to be saved back to the session store
+  saveUninitialized: false, // Forces a session that is "uninitialized" to be saved to the store
+  cookie: { secure: false } // Set to true if you're using HTTPS
+}));
+
+app.get('/', (req, res) => {
+  if (req.session.views) {
+    req.session.views++;
+    res.send(`Number of views: ${req.session.views}`);
+  } else {
+    req.session.views = 1;
+    res.send('Welcome to the session demo. Refresh the page!');
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+```
+
+
+## 7. Cookies
+Cookies are small pieces of data sent from a website and stored on the user's browser. They are used to store information about the user or track their browsing activity.
+
+### How Cookies Work
+1. **Server Response:** When a user visits a website, the server can send one or more cookies to the user's browser.
+2. **Cookie Storage:** The browser stores the cookies and sends them back to the server with each subsequent request to the same domain.
+3. **Subsequent Requests:** The server can read the cookies sent by the browser to maintain state or track user activity.
+
+**Installation**
+```
+npm install express cookie-parser
+```
+
+**Example**
+```js
+const express = require('express');
+const cookieParser = require('cookie-parser');
+
+const app = express();
+
+// Middleware for parsing cookies in Express.
+app.use(cookieParser());
+
+app.get('/', (req, res) => {
+  // Object containing the cookies sent by the client's browser.
+  if (req.cookies.views) {
+    let views = parseInt(req.cookies.views) + 1;
+    // Method to set a cookie on the client's browser.
+    res.cookie('views', views);
+    res.send(`Number of views: ${views}`);
+  } else {
+    res.cookie('views', 1);
+    res.send('Welcome to the cookie demo. Refresh the page!');
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+```
+
+> ### Sessions vs Cookies
+
+| Sessions | Cookies  |
+|--|--|
+| Data is stored on the server | Data is stored on the client's browser |
+| Generally more secure as the data is stored on the server. Only the session ID is stored on the client side. | Less secure as the data is stored on the client side and can be manipulated. |
+| Can store larger amounts of data on the server | Limited to 4KB of data per cookie |
+| Typically expire when the user closes the browser or after a specified time period. | Can be persistent (stored until a set expiration date) or session-based (deleted when the browser is closed) |
+
 
 ## Authorization Header
 

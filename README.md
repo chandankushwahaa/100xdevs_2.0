@@ -67,7 +67,7 @@
 - Week 2.6 Map, Filter, and Arrow Functions
 - Week 2.7 Git and GitHub
 
-***[CODE](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week02/mynotes)***
+***[CODE](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week02/code)***
 
 ***[NOTES](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week02)***
 
@@ -97,7 +97,7 @@
 
 ***MYNOTES Theory - Week 3***
    - [Middleware](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week03/mynotes/01)
-   - [Databases](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week03/mynotes/02databases)
+   - [Auth, Hash, cookies, JWT, Databases](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week03/mynotes/02databases)
    - [DOM](https://github.com/chandanck22/100xdevs_2.0/tree/main/0-1/week03/mynotes/03DOM)
 
 Assignments
