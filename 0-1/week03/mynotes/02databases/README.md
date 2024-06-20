@@ -3,7 +3,8 @@
 - Hasing, Encryption
 - JWT, Local Storage
 - Cookies, Session
-- Database
+- Catching
+- [Database](#Databases)
 
 ## 1. Authentication
 
@@ -391,6 +392,16 @@ app.listen(3000, () => {
 | Can store larger amounts of data on the server | Limited to 4KB of data per cookie |
 | Typically expire when the user closes the browser or after a specified time period. | Can be persistent (stored until a set expiration date) or session-based (deleted when the browser is closed) |
 
+## 8. Catching
+- It stores frequently used data and instructions, So that the CPU can access them quickly, improving the overall speed and efficiency of the computer.
+- When a request is made for the same data again, it can be quickly retrieved from the cache instead of going through the original, slower process of fetching or computing it again.
+
+**Different types of caching mechanisms include:**
+
+- **Browser Caching:** Stores resources like images, stylesheets, and scripts locally on the user’s device to speed up subsequent page loads.
+- **Server-Side Caching:** Caches data on the server side to reduce database queries or expensive computations. Techniques include in-memory caching (e.g., Redis), file-based caching, and database query caching.
+- **Content Delivery Network (CDN) Caching:** Stores copies of website content on servers distributed across multiple geographic locations to reduce latency and improve content delivery speed globally.
+- **Database Caching:** Utilizes database-specific caching mechanisms like query caching or result caching to store frequently accessed data in memory for faster retrieval.
 
 ## Authorization Header
 
@@ -592,6 +603,8 @@ axios.get('<https://api.example.com/data>')
 
 # Databases
 
+|Database | |
+
 **Until now, we’ve been storing data in memory. This is bad for a few reasons:**
 
 **1. Data can’t be dynamic:**
@@ -632,6 +645,34 @@ axios.get('<https://api.example.com/data>')
     
 
 Today's class will delve into MongoDB, a famous NoSQL database, exploring its features and applications in the world of data management.
+
+| SQL | NoSQL  |
+|--|--|
+| It is used to store and process data in relational databases.| Non-relational databases that use a non-tabular format to store data, rather than in rule-based,|
+|Tabular form	|Key-value pairs, document-oriented, graph databases, or wide-column stores|
+|**ACID** properties (Atomicity, Consistency, Isolation, Durability) for reliable transactions	|**BASE** properties (Basically Available, Soft state, Eventual consistency) less strict than ACID|
+|Requires ORM (object-relational mapping)|Many do not require ORMs. MongoDB documents map directly to data structures in most popular programming languages.|
+|Vertically scalable (It is harder to upgrade and may involve downtime) |Horizontally scalable (It is easier to upgrade)|
+|MySQL, PostgreSQL, Oracle, SQL Server	|MongoDB, Cassandra, Couchbase, DynamoDB, Redi
+|
+
+**When to Choose SQL:**
+
+- When you need complex transactions and relational data integrity.
+- For applications requiring strict schema adherence.
+- In scenarios where ACID compliance is critical for data consistency.
+
+**When to Choose NoSQL:**
+
+- When dealing with large volumes of data that doesn’t fit well in tabular forms.
+- For projects requiring rapid development and iterations where the schema may frequently change.
+- When the application demands high throughput and scalability across distributed systems.
+
+### Why NoSQL is Used Over SQL
+
+NoSQL is preferred over SQL in many cases because it offers more flexibility and scalability. The primary benefit of using a NoSQL system is that it provides developers with the ability to store and access data quickly and easily, without the overhead of a traditional relational database. As a result, development teams can focus on delivering features and core business logic faster, without worrying about the underlying data storage implementation. 
+
+
 
 ## MongoDB
 
@@ -706,3 +747,21 @@ In summary, while Express sets up the server, JWT helps with user authentication
 ## Mongoose
 
 Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a higher-level, schema-based abstraction over the MongoDB JavaScript driver. Mongoose acts as a powerful bridge between Node.js applications and MongoDB databases. It streamlines the data modeling process, simplifies interactions with the database, and enhances the overall development experience when working with MongoDB in a Node.js environment.
+
+**Connect to a MongoDB database using Mongoose**
+
+```js
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/test') // test is the name of the database
+
+const User = mongoose.model('User', { name: String, email: String, password: String });
+
+const user = new User({
+  name: 'Chandan Kushwaha',
+  email: 'chandan@gmail.com',
+  password: '12345'
+});
+
+user.save(); // save the user to the database
+```
