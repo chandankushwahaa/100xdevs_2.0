@@ -603,8 +603,6 @@ axios.get('<https://api.example.com/data>')
 
 # Databases
 
-|Database | |
-
 **Until now, we’ve been storing data in memory. This is bad for a few reasons:**
 
 **1. Data can’t be dynamic:**
@@ -625,6 +623,10 @@ axios.get('<https://api.example.com/data>')
 
 > Using databases, not just memory, is vital for strong, scalable apps. They ensure lasting, shared data across servers, maintaining consistency even after restarts.
 
+**Data** is raw information that can be unprocessed or processed, and represented as text, numbers, or multimedia. 
+
+**Database** is a collection of interrelated data that's organized so it can be easily accessed, managed, and updated.
+
 ## Types Of Databases
 
 1.  **Graph Databases:**
@@ -644,15 +646,13 @@ axios.get('<https://api.example.com/data>')
     NoSQL databases offer flexibility in data modeling and are suitable for applications with evolving and diverse data needs. _Example:_ MongoDB
     
 
-Today's class will delve into MongoDB, a famous NoSQL database, exploring its features and applications in the world of data management.
-
 | SQL | NoSQL  |
 |--|--|
 | It is used to store and process data in relational databases.| Non-relational databases that use a non-tabular format to store data, rather than in rule-based,|
 |Tabular form	|Key-value pairs, document-oriented, graph databases, or wide-column stores|
 |**ACID** properties (Atomicity, Consistency, Isolation, Durability) for reliable transactions	|**BASE** properties (Basically Available, Soft state, Eventual consistency) less strict than ACID|
 |Requires ORM (object-relational mapping)|Many do not require ORMs. MongoDB documents map directly to data structures in most popular programming languages.|
-|Vertically scalable (It is harder to upgrade and may involve downtime) |Horizontally scalable (It is easier to upgrade)|
+|Vertically scalable (It is harder to upgrade and may involve downtime) |Horizontally scalable (It is easier to upgrade and can handle large volumes of data)|
 |MySQL, PostgreSQL, Oracle, SQL Server	|MongoDB, Cassandra, Couchbase, DynamoDB, Redi
 |
 
@@ -672,11 +672,18 @@ Today's class will delve into MongoDB, a famous NoSQL database, exploring its fe
 
 NoSQL is preferred over SQL in many cases because it offers more flexibility and scalability. The primary benefit of using a NoSQL system is that it provides developers with the ability to store and access data quickly and easily, without the overhead of a traditional relational database. As a result, development teams can focus on delivering features and core business logic faster, without worrying about the underlying data storage implementation. 
 
+MongoDB is a distributed database which allows ad-hoc queries, real-time integration, and indexing efficient. Moreover, MongoDB is open-source and perfect for frequently changing data. It also offers server-side data validation.
+
 
 
 ## MongoDB
 
-MongoDB is a powerful and versatile NoSQL database that revolutionizes data management with its flexible and scalable design. Here's a breakdown of its key features:
+MongoDB is a powerful and versatile NoSQL database that revolutionizes data management with its flexible and scalable design. 
+
+It stores data in flexible, schema-less documents, whereas relational databases use structured tables with fixed schemas.
+
+
+Here's a breakdown of its key features:
 
 1.  **Database Creation:**
     -   MongoDB allows users to create multiple databases, acting as distinct containers for organizing and storing data.
