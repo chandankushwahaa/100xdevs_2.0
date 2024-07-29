@@ -313,8 +313,23 @@ Assignments
 
 ># 1 - 100
 
-## Week 20 
+## Week 20 OpenAI
 
 - Week 20.1 Orientation, (1-100) Setting -Up CMS daily
 - Week 20.2  OpenAPI Spec (Offline)
+   - [Slide](https://projects.100xdevs.com/tracks/openapi/OpenAPISpec-1)
 - Week 20.3  OpenAPI Spec Class (Cohort 1)
+
+## Week 21 DDos, PubSubs
+
+- Week 21.1 DDoS, Rate limit, Captchas
+   - [Slide](https://projects.100xdevs.com/tracks/rl-ddos-cap/Rate-limitting--DDoS-and-Captcha-1)
+- Week 21.2  Singleton pattern + Pub subs
+   - [Slide](https://projects.100xdevs.com/tracks/singleton-sm-pubsubs/Singleton-Pattern--Backend-State-management-and-Pub-Subs-1)
+
+## Week 22 Capacity estimation, Normalisation Indexing in Databases
+- Week 22.1 Capacity estimation, Horizontal and Vertical Scaling, NSGs
+- Week 22.2 Auto Scaling Groups
+- Week 22.3 Indexing in Databases
+- Week 22.4 Normalisation In Databases
+   - [Slide](https://projects.100xdevs.com/tracks/hor-ver-scaling/Horizontal-and-vertical-scaling--Indexes-in-DBs-1)
